@@ -1,0 +1,23 @@
+-- LICH launcher
+--
+
+local lich = require('lich')
+local cliargs = require('cliargs')
+
+local configfile
+
+cliargs:option('-c, --config=FILE', 'Configuration file')
+
+local args, err = cliargs:parse(_G.arg)
+
+if not args and err then
+   io.stderr:write(
+      string.format("%s: %s; re-run with help for usage\n", cli.name, err))
+   os.exit(1)
+end
+
+configfile = args['config'] or '/etc/lich.conf'
+
+lich = lich:new(configfile)
+
+lich:run()
