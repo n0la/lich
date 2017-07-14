@@ -68,9 +68,7 @@ function server:_onmessage(user, channel, msg)
    local c = command:new()
    local ok, err = pcall(command.parse, c, msg)
 
-   if not ok then
-      log.error('not a command: "' .. msg .. '": ' .. err)
-   else
+   if ok then
       self.plugins:oncommand(self, user, channel, c)
    end
 end
