@@ -29,8 +29,8 @@ servers:
 
 * Lua 5.3
 * My own fork of [LuaIRC](https://github.com/n0la/LuaIRC)
-* [lyaml](https://github.com/gvvaughan/lyaml]
-* [cliargs](https://github.com/amireh/lua_cliargs]
+* [lyaml](https://github.com/gvvaughan/lyaml)
+* [cliargs](https://github.com/amireh/lua_cliargs)
 
 ## Plugins
 
