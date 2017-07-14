@@ -51,7 +51,7 @@ return myplugin
 
 And here is the interface:
 
-```
+```lua
 -- Must return the fully qualified package name of the plugin
 function myplugin:name()
 end
