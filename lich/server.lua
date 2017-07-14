@@ -66,12 +66,12 @@ function server:_onmessage(user, channel, msg)
    self.plugins:onmessage(self, user, channel, msg)
    -- Check to see if the message can be parsed as command
    local c = command:new()
-   local ok, cmd = pcall(c.parse, c, msg)
+   local ok, err = pcall(command.parse, c, msg)
 
    if not ok then
-      log.error('not a command: "' .. msg .. '": ' .. args)
+      log.error('not a command: "' .. msg .. '": ' .. err)
    else
-      self.plugins:oncommand(self, user, channel, cmd)
+      self.plugins:oncommand(self, user, channel, c)
    end
 end
 
