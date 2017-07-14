@@ -79,4 +79,13 @@ function server:think()
    self.socket:think()
 end
 
+function server:send_message(user, channel, msg)
+   if channel == self.nick then
+      self.socket:sendChat(user.nick, msg)
+   else
+      -- TODO: rate limiting
+      self.socket:sendChat(channel, msg)
+   end
+end
+
 return server
