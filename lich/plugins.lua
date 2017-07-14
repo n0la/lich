@@ -39,7 +39,7 @@ end
 function plugins:fire(method, ...)
    for _, plugin in base.pairs(self.loaded) do
       local func = plugin[method]
-      if not func then
+      if not func or type(func) ~= 'function' then
          log.debug('plugin ' .. plugin:name() ..
                       ' does not support method ' .. method)
       else
@@ -57,7 +57,7 @@ function plugins:onmessage(server, user, channel, msg)
 end
 
 function plugins:oncommand(server, user, channel, cmd)
-   return self:fire('oncommand', server, user, cmd)
+   return self:fire('oncommand', server, user, channel, cmd)
 end
 
 return plugins
