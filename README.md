@@ -32,6 +32,14 @@ servers:
 * [lyaml](https://github.com/gvvaughan/lyaml)
 * [cliargs](https://github.com/amireh/lua_cliargs)
 
+## Running
+
+Create a new configuration file and start it like so:
+
+```shell
+lua53 lua-lich -c myconfigfile.yaml
+```
+
 ## Plugins
 
 ### Writing new ones
