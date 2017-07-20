@@ -30,7 +30,8 @@ function plugins:load(config)
          log.error('failed to load plugin: ' .. fullname .. ': ' .. pl)
       else
          log.info('loaded plugin ' .. fullname)
-         local plug = pl:new(plugin)
+         local config = plugin.config or {}
+         local plug = pl:new(config)
          table.insert(self.loaded, plug)
       end
    end

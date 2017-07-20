@@ -17,10 +17,12 @@ servers:
     url: irc.freenode.net
     plugins:
       - name: lua.package.path.to.plugin
-        config1: first config option
-        config2: second config option
+        config:
+          entry1: first config option
+          entry2: second config option
       - name: another.lua.plugin
-        config1: first config option
+        config:
+          entry1: first config option
     channels:
       - name: "##mychannel"
 ```
@@ -45,8 +47,10 @@ lua53 lua-lich -c myconfigfile.yaml
 ### Writing new ones
 
 Your plugin file needs to provide a table that is capable of spawning
-a new plugin when calling ```new```. This table should, for the sake of
-simplicity, inherit from the ```plugin``` object provided by lich:
+a new plugin when calling ```new```. The new function will receive the
+config sub tree, as table, as its first parameter. This table should,
+for the sake of simplicity, inherit from the ```plugin``` object
+provided by lich:
 
 ```lua
 local plugin = require('lich.plugin')
